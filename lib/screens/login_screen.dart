@@ -100,6 +100,7 @@ class LoginScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextFormField(
+        keyboardType: TextInputType.number,
         cursorColor: whiteColor,
         style: const TextStyle(fontFamily: 'CircularStd', color: whiteColor),
         decoration: InputDecoration(

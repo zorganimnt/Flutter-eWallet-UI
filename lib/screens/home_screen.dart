@@ -1,7 +1,9 @@
 import 'package:dawercodeapp/constants/colors.dart';
+import 'package:dawercodeapp/screens/send_money.dart';
 import 'package:dawercodeapp/widgets/history_widget.dart';
 import 'package:dawercodeapp/widgets/service_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,6 +11,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+      floatingActionButton: FloatingActionButton(onPressed: (() => {}), child: Icon(Icons.qr_code_scanner_rounded),backgroundColor: bgColor,),
       backgroundColor: bgColor,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -82,12 +86,15 @@ class HomeScreen extends StatelessWidget {
   Row _buildServiceChoice() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: const [
-        ServiceWidget(
-          serviceName: "Send",
-          icon: Icons.send,
-          colorIcon: Colors.lightBlue,
-          circleColor: Colors.blueAccent,
+      children:  [
+        InkWell(
+          onTap:() => Get.to(SendScreen()),
+          child: ServiceWidget(
+            serviceName: "Send",
+            icon: Icons.send,
+            colorIcon: Colors.lightBlue,
+            circleColor: Colors.blueAccent,
+          ),
         ),
         SizedBox(
           width: 12,
